@@ -1,0 +1,25 @@
+<div class='row-col-6'>
+  <button class="btn btn-lg btn-primary"></button>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Status</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @challenges.each do |challenge| %>
+        <tr>
+          <td><%= challenge.name %></td>
+          <td><%= challenge.status %></td>
+          <td></td>
+          <td><%= link_to 'Edit', edit_challenge_path(challenge), class: 'btn btn-warning' %></td>
+          <td><%= link_to 'Destroy', challenge_path(challenge), method: :delete, data: { confirm: "You sure m8?" }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
