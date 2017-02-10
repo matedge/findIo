@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">GO TO HOME PAGE</a>
+    </div>
+
+    <div class='navbar navbar-right'>
+      <% if current_admin %>
+        <%= link_to 'Sign out', destroy_admin_session_path, method: :delete %>
+      <% end %>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
