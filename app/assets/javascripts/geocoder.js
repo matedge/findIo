@@ -112,11 +112,14 @@ function drawPath() {
 
   var directionsService = new google.maps.DirectionsService();
   var poly = new google.maps.Polyline({strokeColor:"#FF0000", strokeWeight:4});
+  var way = $('#floating-panel select').val()
+  debugger;
+  var mode = google.maps.DirectionsTravelMode[way]
 
   var request = {
     origin: new google.maps.LatLng(points[0].lat, points[0].long),
     destination: new google.maps.LatLng(points[1].lat, points[1].long),
-    travelMode: google.maps.DirectionsTravelMode.DRIVING
+    travelMode: mode
   };
 
   directionsService.route(request, function(response, status){
