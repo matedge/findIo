@@ -106,6 +106,10 @@ function onSuccess(position) {
   map.fitBounds(latlngbounds);
   drawPath();
 
+  var dist = Math.round(calculateDist(points[0].lat, points[0].long, points[1].lat, points[1].long)*100)/100;
+  $("#distance").html("<b>You are " + dist + " kilometers away from your destination.</b>");
+
+
 }
 
 function drawPath() {
@@ -113,7 +117,7 @@ function drawPath() {
   var directionsService = new google.maps.DirectionsService();
   var poly = new google.maps.Polyline({strokeColor:"#FF0000", strokeWeight:4});
   var way = $('#floating-panel select').val()
-  debugger;
+  // debugger;
   var mode = google.maps.DirectionsTravelMode[way]
 
   var request = {
@@ -149,4 +153,14 @@ function onError(error){
       alert("Unknown error");
       break;
   }
+}
+
+function calculateDist(latSource, longSource, latDest, longDest) {
+  latSourceRadians = latSource*Math.PI/180;
+  longSourceRadians = longSource*Math.PI/180;
+  latDestRadians = latDest*Math.PI/180;
+  longDestRadians = longDest*Math.PI/180;
+  var distance = 3959 * Math.acos(Math.cos(latSourceRadians) * Math.cos(latDestRadians) *Math.cos(longSourceRadians - longDestRadians) +Math.sin(latSourceRadians) * Math.sin(latDestRadians));
+  distance = distance * 1.609344;
+  return distance;
 }
