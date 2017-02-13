@@ -1,19 +1,23 @@
-<%= form_for @challenge do |f| %>
-  <%if @challenge.errors.any?%>
-    <% @challenge.errors.full_messages.each do |msg| %>
-      <div class="alert alert-danger"><%= msg %></div>
+<div id="challenges_form">
+  <%= form_for @challenge do |f| %>
+    <%if @challenge.errors.any?%>
+      <% @challenge.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger"><%= msg %></div>
+      <% end %>
     <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, required: true, class: 'form-control', autofocus: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :status %>
+      <%= f.select :status, Challenge::STATUSES, { include_blank: "Select status"}, { class: 'form-control' } %>
+    </div>
+
+    <div id="mapAreaChallengeCreation" style="width:600px;height:600px;"></div>
+    <%= f.submit class: 'btn btn-primary' %>
+
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true, :class => 'form-control', :autofocus => true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :status %>
-    <%= f.text_field :status, :required => true, :class => 'form-control' %>
-  </div>
-  <%= f.submit :class => 'btn btn-primary' %>
-
-<% end %>
+</div>
