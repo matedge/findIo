@@ -1,0 +1,27 @@
+<div class='row'>
+  <div class="col-md-12">
+    <%= link_to 'Create new challenge', new_challenge_path, class: "btn btn-lg btn-primary pull-right" %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td><h4 class="lead">Name</h4></td>
+          <td><h4 class="lead">Status</h4></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @challenges.each do |challenge| %>
+          <tr>
+            <td><%= challenge.name %></td>
+            <td><%= challenge.status %></td>
+            <td></td>
+            <td><%= link_to 'Edit', edit_challenge_path(challenge), class: 'btn btn-warning' %></td>
+            <td><%= link_to 'Destroy', challenge_path(challenge), method: :delete, data: { confirm: "You sure m8?" }, class: 'btn btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

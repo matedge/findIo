@@ -79,6 +79,7 @@ function onSuccess(position) {
 
   if (xmlhttpAddr.readyState == 4 && xmlhttpAddr.status == 200) {
     var result = xmlhttpAddr.responseText;
+    //TODO: remove this eval, eval is evil
     var jsResult = eval("(" + result + ")");
 
     points[1].lat = jsResult.results[0].geometry.location.lat;
