@@ -47,11 +47,6 @@ ActiveRecord::Schema.define(version: 20170212230753) do
     t.integer "challenge_id"
   end
 
-  create_table "challenges_locations", force: :cascade do |t|
-    t.integer "location_id"
-    t.integer "challenge_id"
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.integer  "latitude"
