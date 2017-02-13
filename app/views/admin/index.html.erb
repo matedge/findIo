@@ -9,5 +9,14 @@
 <div id="mapArea" style="height:500px; width:500px"></div> -->
 
 Destination: <input type="text" id="destination" /><br /><br/>
+<div id="floating-panel">
+   <b>Mode of Travel: </b>
+   <select id="mode">
+     <option value="DRIVING">Driving</option>
+     <option value="WALKING">Walking</option>
+     <option value="BICYCLING">Bicycling</option>
+     <option value="TRANSIT">Transit</option>
+   </select>
+   </div>
 <button id="btnPath" onclick="findPath();">Show Path</button>
 <div id="mapArea" style="width:600px;height:600px;"></div>
