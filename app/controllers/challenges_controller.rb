@@ -14,6 +14,9 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenge_params)
 
     if @challenge.save
+
+      # TODO: fix this shit
+      @challenge.update(location_ids: params[:location_ids].split(','))
       redirect_to challenges_path, notice: "Your challenge was created"
     else
       redirect_to new_challenge_path, notice: "Something went wrong"
