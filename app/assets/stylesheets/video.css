@@ -15,11 +15,11 @@ video#bgvid {
     background-size: cover;
 }
 
-@media screen and (max-device-width: 800px) {
+/*@media screen and (max-device-width: 800px) {
     html {
          background: url(/assets/Shoes-Stories.jpg) #000 no-repeat center center fixed;
     }
     #bgvid {
         display: none;
     }
-}
+}*/
