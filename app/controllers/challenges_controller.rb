@@ -1,5 +1,6 @@
 class ChallengesController < ApplicationController
 
+  skip_before_action :authenticate_admin!, :only => [:show]
   before_action :authenticate_admin!
 
   def index
@@ -8,6 +9,11 @@ class ChallengesController < ApplicationController
 
   def new
     @challenge = Challenge.new
+  end
+
+  def show
+    @challenge = Challenge.find(params[:id])
+    @locations = @challenge.locations
   end
 
   def create
