@@ -1,7 +1,11 @@
 class ChallengesController < ApplicationController
 
+<<<<<<< HEAD
   skip_before_action :authenticate_admin!, :only => [:show]
   before_action :authenticate_admin!
+=======
+  # before_action :authenticate_admin!
+>>>>>>> 58f1fb3f8e4aa7397b9636a207a4ea75e5290c9a
 
   def index
     @challenges = Challenge.all
@@ -18,6 +22,12 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenge_params)
+
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      publicId = req["public_id"]
+      @challenge.update_attribute(:image_url, publicId)
+    end
 
     if @challenge.save
 
@@ -54,7 +64,7 @@ class ChallengesController < ApplicationController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:name, :status)
+    params.require(:challenge).permit(:name, :image_url)
   end
 
 end
