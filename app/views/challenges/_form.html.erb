@@ -1,5 +1,5 @@
 <div id="challenges_form">
-  <%= form_for @challenge do |f| %>
+  <%= form_for @challenge, :html => {:multipart => true} do |f| %>
     <%if @challenge.errors.any?%>
       <% @challenge.errors.full_messages.each do |msg| %>
         <div class="alert alert-danger"><%= msg %></div>
@@ -10,6 +10,10 @@
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, required: true, class: 'form-control', autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image_url %>
+      <%= cl_image_upload_tag(:image_url) %>
     </div>
 
     <div class="row">
