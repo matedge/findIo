@@ -1,28 +1,11 @@
-== README
+== Welcome to Find.io
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For our group project in WDI 19 Sydney, we have created a geolocating web app that would eventually be used as a marketing platform for local area businesses.
 
-Things you may want to cover:
+The application enables promoters to place a point of interest on a generated google map and attach a file to the location. This would be some sort of enticement for users to visit the physical location.
 
-* Ruby version
+Once a user logs in, their current location is mapped and all 'Challenges" in' within range are populated. Users can then chose one to complete. This will map a route to the location of the challenge.
 
-* System dependencies
+Once close enough to the location, users are rewarded with a trigger even. In a real world scenario, this would be drawing a crowd of people to receive free offers or to see an entertainment event.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+The project was created using Ruby on Rails, Jquery, Javascript, PostgreSQL, Twitter Bootstrap and Google Maps API.

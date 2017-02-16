@@ -1,6 +1,10 @@
 $(window).on('load', function () {
 // If we are on users index page
+
   if ($('.usersIndex').length > 0) {
+    var $map = $('#usersIndexMap')
+    var height = $map.width()
+    $('#usersIndexMap').height(height)
     var map = new Geocoding("usersIndexMap")
     map.init()
   }
