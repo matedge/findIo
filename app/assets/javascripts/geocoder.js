@@ -49,13 +49,12 @@ window.Geocoding = function(mapAreaElement, destination) {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-    return this.populateMarkers({'curr': currentLocation, 'dest': destination}, map);
+    return this.populateMarkers({'currentLocation': currentLocation, 'destination': destination}, map);
   },
 
   this.populateMarkers = function(locations, map) {
     var latlngbounds = new google.maps.LatLngBounds();
     for (var key in locations) {
-      console.log(locations[key])
       var marker = new google.maps.Marker({
         position: locations[key],
         map: map
