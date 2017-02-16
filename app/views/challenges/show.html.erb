@@ -1,51 +1,12 @@
 <div class="challengeShow">
-
-
-<h1 class="center">Users Landing page</h1>
-<div class="row">
-  <div class="col-md-6">
-    <div id="mapArea2" style="width:600px;height:600px;"></div>
-    <div id="distance"></div>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="userChallengeMap" style="width:600px;height:600px;"></div>
+      <div id="distance"></div>
+    </div>
+    <div class="col-md-6">
+      <p id="loc-lat" data-lat='<%=@location.latitude %>'><%= @location.latitude %></p>
+      <p id="loc-lng" data-lng='<%=@location.longtitude %>'><%= @location.latitude %></p>
+    </div>
   </div>
-  <div class="col-md-6">
-
-
-    <div class="center">
-      Destination: <input type="text" id="destination" class="form-group" /><br /><br/>
-    <div id="floating-panel">
-     <b>Mode of Travel: </b>
-     <div class="row">
-       <!-- <div class="col-md-4"></div> -->
-       <div class="col-md-4">
-         <select class="form-control" id="mode">
-           <option value="DRIVING">Driving</option>
-           <option value="WALKING">Walking</option>
-           <option value="BICYCLING">Bicycling</option>
-           <option value="TRANSIT">Transit</option>
-         </select>
-        </div>
-        <button id="btnPath" class="btn btn-primary" id="showPath" onclick="findPath()">Show Path</button>
-        <br>
-
-          <h3><%= @challenge.locations %></h3>
-          <% @locations.each do |loc| %>
-            <p data-id="<%=loc.id %>">LocationID <%= loc.id %></p>
-            <p>Latitude<%= loc.latitude %></p>
-            <p>Longtitude<%= loc.longtitude %></p>
-          <% end %>
-
-
-
-
-     </div>
-     <br>
-
-     <!-- <div class='listLocation'>
-
-     </div> -->
-
-
-  </div>
-</div>
-
 </div>
