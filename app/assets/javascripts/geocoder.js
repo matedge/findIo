@@ -71,8 +71,24 @@ window.Geocoding = function(mapAreaElement, destination) {
     });
   },
 
+  this.calculateDistance = function(location, destination) {
+    latSourceRadians = location.lat * Math.PI / 180;
+    longSourceRadians = location.lng * Math.PI / 180;
+    latDestRadians = destination.lat * Math.PI / 180;
+    longDestRadians = destination.lng * Math.PI / 180;
+    var distance = 3959 * Math.acos(Math.cos(latSourceRadians) * Math.cos(latDestRadians) * Math.cos(longSourceRadians - longDestRadians) + Math.sin(latSourceRadians) * Math.sin(latDestRadians));
+    distance = distance * 1.609344;
+    return Math.floor(distance * 1000);
+  },
+
   this.onSuccess = function(position) {
-    return this.createMap(position)
+    var currentPosition = { lat: position.coords.latitude, lng: position.coords.longitude };
+    console.log(this.calculateDistance(currentPosition, destination))
+    if (this.calculateDistance(position, destination) < 20) {
+      $("#winChallengeModal").modal('show')
+    } else {
+      return this.createMap(position)
+    }
   },
 
   this.onError = function(error) {

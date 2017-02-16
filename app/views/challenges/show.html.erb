@@ -10,3 +10,13 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id='winChallengeModal'>
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div><%= cl_image_tag(@challenge.image_url, :crop => :fill, :width => 50, :height => 50) %></div>
+      <%= link_to 'Continue', root_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
