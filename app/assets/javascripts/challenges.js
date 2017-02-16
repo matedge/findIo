@@ -13,7 +13,9 @@ $(document).ready(function() {
 
 function initChallengeMap() {
   var myLatlng = {lat: -33.865143, lng: 151.209900};
-
+  var $map = $('#mapAreaChallengeCreation');
+  var width = $map.width();
+  $map.height(width);
   var map = new google.maps.Map(document.getElementById('mapAreaChallengeCreation'), {
     zoom: 15,
     center: myLatlng
