@@ -1,57 +1,25 @@
-<div class="challengeIndex">
+<div class="usersIndex">
 
-<h1 class="center">Users Landing page</h1>
-<div class="row">
-  <div class="col-md-6">
-    <div id="mapArea1" style="width:600px;height:600px;"></div>
-    <div id="distance"></div>
-  </div>
-  <div class="col-md-6">
-
-
-    <div class="center">
-      Destination: <input type="text" id="destination" class="form-group" /><br /><br/>
-    <div id="floating-panel">
-     <b>Mode of Travel: </b>
-     <div class="row">
-       <!-- <div class="col-md-4"></div> -->
-       <div class="col-md-4">
-         <select class="form-control" id="mode">
-           <option value="DRIVING">Driving</option>
-           <option value="WALKING">Walking</option>
-           <option value="BICYCLING">Bicycling</option>
-           <option value="TRANSIT">Transit</option>
-         </select>
-        </div>
-        <button id="btnPath" class="btn btn-primary">Show Path</button>
-        <br>
-
-        <% @challenges.each do |locations, challenge| %>
-
-        <!-- <%= link_to root_path do %>
-          <%= content_tag :span, "Home", :class => "home-link" %>
-        <% end %> -->
-
-        <div class=location style='width:100%;height:150px;background-color:yellow;'>
-
-          <h3><a href="challenges/<%= challenge.first.id %>"><%= challenge.first.name %></h3>
-          <% locations.each do |loc| %>
-              <p data-id="<%=loc.id %>">LocationID <%= loc.id %></p>
-              <p data-latitude="<%=loc.latitude %>">Latitude<%= loc.latitude %></p>
-              <p data-longtitude="<%=loc.longtitude %>">Longtitude<%= loc.longtitude %></p>
+  <h1 class="center">Users Landing page</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div id="usersIndexMap" style="width:600px;height:600px;"></div>
+      <div id="distance"></div>
+    </div>
+    <div class="col-md-6">
+      <div class="center">
+        <% @challenges.each do |locations, challenges| %>
+        <h2><%= challenges.first.name %></h2>
+          <% locations.each do |location| %>
+            <%= link_to challenge_path(challenges.first, location: location) do %>
+              <div class="location well">
+                <p><%= location.latitude %></p>
+                <p><%= location.longtitude %></p>
+              </div>
+            <% end %>
           <% end %>
-        </div>
         <% end %>
-     </div>
-     <br>
-
-     <!-- <div class='listLocation'>
-
-     </div> -->
-
-
+      </div>
+    </div>
   </div>
-</div>
-
-
 </div>

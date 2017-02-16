@@ -1,8 +1,27 @@
-<%= video_tag(['Shoes-Stories.mp4', 'Shoes-Stories.webm'], playsinline: true, autoplay: true, muted: true, loop: true, poster: 'Shoes-Stories.jpg') %>
+<%= video_tag(['Shoes-Stories.mp4', 'Shoes-Stories.webm'], playsinline: true, autoplay: true, muted: true, loop: true, poster: 'Shoes-Stories.jpg', id:"bgvid") %>
 
 <div class="row">
   <div class="col-xs-12">
-    <%= link_to "Login", user_session_path, class: 'btn btn-large' %>
-    <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-large' %>
+    <div class="row">
+     <div class="col-sm-12">
+      <div class="text-center featuretext">
+        <p>The world's greatest geolocation website.<br>
+       Are you ready to start your journey?</p>
+         <button type="button" class="btn btn-primary btn-lg text-center fromtop" data-toggle="modal" data-target=".bs-example-modal-sm">Get Started</button>
+
+       <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+         <div class="modal-content">
+           Welcome to Find.io <br>
+           A place where all your dreams of walking around a city can come true.<br>
+           Let's get started by telling us who you are.<hr>
+           <%= link_to "Login", user_session_path, class: 'btn btn-large' %>
+           <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-large' %>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
   </div>
 </div>

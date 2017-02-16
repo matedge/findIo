@@ -1,15 +1,8 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-
-    <div class="navbar-header">
-        <a class="navbar-brand" href="/">
-          <%= image_tag('imageedit_1_8212679445.png', alt: 'brand', class: 'wide')%>
-        </a>
-      </div>
 
 
-    <div class='navbar navbar-right'>
+
+
+<!--
 
     </div>
     <ul class="nav navbar-nav navbar-right">
@@ -23,10 +16,62 @@
           </ul>
         </li>
         <li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li>
-      <% end %>
-      <% if current_user %>
+      <% end %> -->
+      <!-- <% if current_user %>
         <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
       <% end %>
       </ul>
-  </div><!-- /.container-fluid -->
+  </div><! /.container-fluid -->
+<!-- </nav> -->
+
+
+<nav role="navigation" class="navbar navbar-inverse">
+
+    <div class="navbar-header">
+        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand"><%= image_tag('imageedit_1_8212679445.png', alt: 'brand', class: 'wide')%></a>
+    </div>
+
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li> -->
+            <!-- <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Messages <b class="caret"></b></a> -->
+                <ul role="menu" class="dropdown-menu">
+                  <% if current_admin %>
+                    <!-- <li class="dropdown"> -->
+                      <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> -->
+                        <li><%= link_to 'Challenges', challenges_path%></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                    <li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li>
+                  <% end %>
+                    <!-- <li><a href="#">Inbox</a></li>
+                    <li><a href="#">Drafts</a></li>
+                    <li><a href="#">Sent Items</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Trash</a></li> -->
+                </ul>
+            </li>
+        </ul>
+        <!-- <form role="search" class="navbar-form navbar-left">
+            <div class="form-group">
+                <input type="text" placeholder="Search" class="form-control">
+            </div>
+        </form> -->
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+          <% end %>
+            <!-- <li><a href="#">Login</a></li> -->
+        </ul>
+    </div>
 </nav>
