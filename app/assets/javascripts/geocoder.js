@@ -78,6 +78,7 @@ window.Geocoding = function(mapAreaElement, destination) {
     longDestRadians = destination.lng * Math.PI / 180;
     var distance = 3959 * Math.acos(Math.cos(latSourceRadians) * Math.cos(latDestRadians) * Math.cos(longSourceRadians - longDestRadians) + Math.sin(latSourceRadians) * Math.sin(latDestRadians));
     distance = distance * 1.609344;
+    // Change this to return 1 to see the user winning state for tests
     return Math.floor(distance * 1000);
   },
 
