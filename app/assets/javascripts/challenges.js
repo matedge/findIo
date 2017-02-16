@@ -41,13 +41,6 @@ function createLocationHtml(data) {
     url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+ data.latitude + ',' + data.longtitude
   }).done(function(googleData) {
     $(".locations").append('<div id="' + data.id + '" class="well well-lg"><a class="remove_location" href="#"><span class="pull-right glyphicon glyphicon-trash"></span></a><h3 class="lead"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  ' + googleData.results[0].formatted_address + '</h3></div>')
-    $.ajax({
-      method: 'POST',
-      url: '/locations',
-      data: { "location[name]": googleData.results[0].formatted_address }
-    }).done(function() {
-      console.log('success')
-    })
     addRemoveListener()
   })
 }

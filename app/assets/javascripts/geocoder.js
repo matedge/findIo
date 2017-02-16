@@ -15,6 +15,18 @@ $(window).on('load', function () {
         lng: $('#loc-lng').data('lng') })
     map.init()
   }
+
+  if ($('.locations-name').length > 0 ) {
+    $('.locations-name').each(function() {
+      var that = $(this)
+      $.ajax({
+        method: 'GET',
+        url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+ $(this).data('lat') + ',' + $(this).data('lng')
+      }).done(function(googleData) {
+        that.find('h3').text(googleData.results[0].formatted_address)
+      })
+    })
+  }
 })
 
 window.Geocoding = function(mapAreaElement, destination) {
@@ -37,12 +49,13 @@ window.Geocoding = function(mapAreaElement, destination) {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-    return this.populateMarkers({currentLocation, destination}, map);
+    return this.populateMarkers({'curr': currentLocation, 'dest': destination}, map);
   },
 
   this.populateMarkers = function(locations, map) {
     var latlngbounds = new google.maps.LatLngBounds();
     for (var key in locations) {
+      console.log(locations[key])
       var marker = new google.maps.Marker({
         position: locations[key],
         map: map
