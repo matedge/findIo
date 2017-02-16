@@ -33,7 +33,7 @@ window.Geocoding = function(mapAreaElement, destination) {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-    return this.populateMarkers({currentLocation, destination}, map)
+    return this.populateMarkers({currentLocation, destination}, map);
   },
 
   this.populateMarkers = function(locations, map) {
@@ -46,7 +46,7 @@ window.Geocoding = function(mapAreaElement, destination) {
       latlngbounds.extend(marker.position);
     }
     map.fitBounds(latlngbounds);
-    return this.drawPath(map, locations)
+    return this.drawPath(map, locations);
   },
 
   this.drawPath = function(map, locations) {
@@ -85,9 +85,9 @@ window.Geocoding = function(mapAreaElement, destination) {
   this.onSuccess = function(position) {
     var currentPosition = { lat: position.coords.latitude, lng: position.coords.longitude };
     if (destination && this.calculateDistance(position, destination) < 20) {
-      $("#winChallengeModal").modal('show')
+      $("#winChallengeModal").modal('show');
     } else {
-      return this.createMap(position)
+      return this.createMap(position);
     }
   },
 
