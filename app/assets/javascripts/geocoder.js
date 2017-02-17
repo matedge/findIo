@@ -108,6 +108,6 @@ window.Geocoding = function(mapAreaElement, destination) {
   },
 
   this.onError = function(error) {
-    console.log("Error", error.code);
+    console.log("Error", error);
   }
 }
