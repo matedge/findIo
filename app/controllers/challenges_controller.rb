@@ -1,10 +1,6 @@
 class ChallengesController < ApplicationController
 
-
-
-  skip_before_action :authenticate_admin!, :only => [:show]
-  before_action :authenticate_admin!
-
+  before_action :authenticate_admin!, only: [:index, :new, :create, :edit, :update, :destroy]
 
   def index
     @challenges = Challenge.all

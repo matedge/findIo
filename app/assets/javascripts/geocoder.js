@@ -23,7 +23,7 @@ $(window).on('load', function () {
         method: 'GET',
         url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+ $(this).data('lat') + ',' + $(this).data('lng')
       }).done(function(googleData) {
-        that.find('h3').text(googleData.results[0].formatted_address)
+        that.find('h3, p').text(googleData.results[0].formatted_address)
       })
     })
   }

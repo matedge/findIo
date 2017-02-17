@@ -4,9 +4,14 @@
       <div id="userChallengeMap" style="width:600px;height:600px;"></div>
       <div id="distance"></div>
     </div>
-    <div class="col-md-6">
-      <p id="loc-lat" data-lat='<%=@location.latitude %>'><%= @location.latitude %></p>
-      <p id="loc-lng" data-lng='<%=@location.longtitude %>'><%= @location.latitude %></p>
+    <div class="col-md-6" style="text-align:right">
+      <div class="locations-name" data-lat="<%= @location.latitude %>" data-lng="<%= @location.longtitude %>">
+        <p style="font-weight:bold;" class="loc-name lead"></h3>
+      </div>
+      You have to go at
+      <p id="loc-lat" data-lat='<%=@location.latitude %>' >latitude:<%= @location.latitude %></p>
+      <p id="loc-lng" data-lng='<%=@location.longtitude %>' >longtitude:<%= @location.longtitude %></p>
+      to make this challenge
     </div>
   </div>
 </div>
