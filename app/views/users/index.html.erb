@@ -1,28 +1,32 @@
 <div class="usersIndex">
 
     <h1 class="center"></h1>
-    <div class="row">
-        <div class="col-md-6">
-            <div id="usersIndexMap" style="width:100%;"></div>
-            <div id="distance"></div>
-        </div>
-        <div class="col-md-6">
-            <div class="center">
-                <% @challenges.each do |locations, challenges| %>
-                <div class="panel panel-default">
-                    <div class="panel-heading"><%= challenges.first.name %></div>
-                    <div class="panel-body">
-                        <% locations.each do |location| %>
-                        <%= link_to challenge_path(challenges.first, location: location) do %>
-                        <p><%= location.latitude %></p>
-                    </div>
 
+    <div class="row">
+      <div class="col-md-6">
+        <div id="usersIndexMap" style="width:100%;"></div>
+        <div id="distance"></div>
+      </div>
+      <div class="col-md-6">
+        <div class="center">
+          <% @challenges.each do |locations, challenges| %>
+            <div class="panel panel-default">
+              <div class="panel-heading"><%= challenges.first.name %></div>
+                <div class="panel-body">
+                  <%= locations.last.name %>
+                  <% locations.each do |location| %>
+                    <%= link_to challenge_path(challenges.first, location: location) do %>
+                      <div class="locations-name" data-lat="<%= location.latitude %>" data-lng="<%= location.longtitude %>">
+                        <h3 class="loc-name lead"></h3>
+                      </div>
+                    <% end %>
+                  <% end %>
                 </div>
 
-                <% end %>
-                <% end %>
-                <% end %>
-            </div>
+              </div>
+            <% end %>
+          </div>
+
         </div>
     </div>
 </div>
