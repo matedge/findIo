@@ -100,7 +100,7 @@ window.Geocoding = function(mapAreaElement, destination) {
 
   this.onSuccess = function(position) {
     var currentPosition = { lat: position.coords.latitude, lng: position.coords.longitude };
-    if (destination && this.calculateDistance(position, destination) < 20) {
+    if (destination && this.calculateDistance(currentPosition, destination) < 20) {
       $("#winChallengeModal").modal('show');
     } else {
       return this.createMap(position);
