@@ -11,7 +11,6 @@
             <div class="panel panel-default">
               <div class="panel-heading"><%= challenges.first.name %></div>
                 <div class="panel-body">
-                  <%= locations.last.name %>
                   <% locations.each do |location| %>
                     <%= link_to challenge_path(challenges.first, location: location) do %>
                       <div class="locations-name" data-lat="<%= location.latitude %>" data-lng="<%= location.longtitude %>">
