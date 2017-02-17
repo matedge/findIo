@@ -21,7 +21,7 @@ $(window).on('load', function () {
       var that = $(this)
       $.ajax({
         method: 'GET',
-        url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+ $(this).data('lat') + ',' + $(this).data('lng')
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ $(this).data('lat') + ',' + $(this).data('lng')
       }).done(function(googleData) {
         that.find('h3, p').text(googleData.results[0].formatted_address)
       })

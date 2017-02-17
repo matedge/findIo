@@ -38,7 +38,7 @@ function initChallengeMap() {
 function createLocationHtml(data) {
   $.ajax({
     method: 'GET',
-    url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng='+ data.latitude + ',' + data.longtitude
+    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ data.latitude + ',' + data.longtitude
   }).done(function(googleData) {
     $(".locations").append('<div id="' + data.id + '" class="well well-lg"><a class="remove_location" href="#"><span class="pull-right glyphicon glyphicon-trash"></span></a><h3 class="lead"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  ' + googleData.results[0].formatted_address + '</h3></div>')
     addRemoveListener()
