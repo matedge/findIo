@@ -41,15 +41,13 @@ window.Geocoding = function(mapAreaElement, destination) {
     }
   },
 
-  this.createMap = function(position) {
-    var currentLocation = { lat: position.coords.latitude,
-                            lng: position.coords.longitude };
+  this.createMap = function(currentPosition) {
     var map = new google.maps.Map(document.getElementById(mapAreaElement), {
-      center: currentLocation,
+      center: currentPosition,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
-    return this.populateMarkers({'currentLocation': currentLocation, 'destination': destination}, map);
+    return this.populateMarkers({'currentLocation': currentPosition, 'destination': destination}, map);
   },
 
   this.populateMarkers = function(locations, map) {
@@ -103,7 +101,7 @@ window.Geocoding = function(mapAreaElement, destination) {
     if (destination && this.calculateDistance(currentPosition, destination) < 20) {
       $("#winChallengeModal").modal('show');
     } else {
-      return this.createMap(position);
+      return this.createMap(currentPosition);
     }
   },
 
