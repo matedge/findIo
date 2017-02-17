@@ -25,7 +25,7 @@ class ChallengesController < ApplicationController
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
       publicId = req["public_id"]
-      @challenge.update_attribute(:image_url, publicId)
+      @challenge.image_url = publicId
     end
 
     if @challenge.save
